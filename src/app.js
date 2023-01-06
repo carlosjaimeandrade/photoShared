@@ -21,7 +21,7 @@ test.testConnection();
 const User = require('./Models/User');
 const Album = require('./Models/Album');
 const Photo = require('./Models/Photo');
-
+const Transaction = require('./Models/Transaction');
 
 app.use('/api', routes.user);
 
