@@ -93,7 +93,50 @@ const update = async (req, res) => {
     }
 }
 
-const destroy = (req, res) => { }
+/**
+ * Delete one item of entity transaction
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+const destroy = async (req, res) => { 
+    try {
+        const id = req.params.id;
+
+        const transaction = await Transaction.findOne({
+            where: { id }
+        })    
+
+        if(!transaction){
+            res.status(400);
+            res.json({
+                error: message['400'],
+                code: 400,
+                transaction: {}
+            })
+            return
+        }
+
+        await Transaction.destroy({
+            where: { id }
+        });
+
+        res.status(200);
+        res.json({
+            error: null,
+            code: 200
+        })
+
+    } catch (error) {
+        log.err(error.message)
+        res.status(500);
+        res.json({
+            error: message['500'],
+            code: 500,
+            transaction: {}
+        })
+    }
+}
 
 module.exports = {
     get,

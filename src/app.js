@@ -23,7 +23,9 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 test.testConnection();
 
-//table imports
+/**
+ * Table imports
+ */
 const User = require('./Models/User');
 const Album = require('./Models/Album');
 const Photo = require('./Models/Photo');

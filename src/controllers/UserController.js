@@ -52,8 +52,8 @@ const create = (req, res) => { }
 const destroy = (req, res) => { }
 
 module.exports = {
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser
+    get,
+    create,
+    update,
+    destroy
 }
