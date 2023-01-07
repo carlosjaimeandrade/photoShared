@@ -24,5 +24,6 @@ const Photo = require('./Models/Photo');
 const Transaction = require('./Models/Transaction');
 
 app.use('/api', routes.user);
+app.use('/api', routes.transaction);
 
 module.exports = app;

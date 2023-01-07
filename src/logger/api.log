@@ -1,0 +1,6 @@
+[2023-1-7 15:54:7] name.ERROR: Bar  [object Extra] ( {} )  
+
+[2023-1-7 15:58:43] api.ERROR: ola mundo  [object Extra] ( {} )  
+
+[2023-1-7 16:0:48] api.ERROR: Transaction.finsdAll is not a function  [object Extra] ( {} )  
+
