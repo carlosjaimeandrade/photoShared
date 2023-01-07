@@ -4,29 +4,52 @@
  * MIT Licensed
  */
 
-const getUser = (req, res) => {
+/**
+ * meuvooooooo
+ * @param {*} req 
+ * @param {*} res 
+ */
+const get = (req, res) => {
     try {
 
         res.status(200);
         res.json({
-            error: null,
-            code: 200,
+            error: null,    
+            error: message['200'],
             user: {}
         })
 
     } catch (error) {
+        log.err(error.message)
         res.status(500);
         res.json({
-            error: error.message,
             code: 500,
+            error: message['500'],
             user: null
         })
     }
 }
 
-const updateUser = (req, res) => { }
-const createUser = (req, res) => { }
-const deleteUser = (req, res) => { }
+/**
+ * meuvooooooo
+ * @param {*} req 
+ * @param {*} res 
+ */
+const update = (req, res) => { }
+
+/**
+ * meuvooooooo
+ * @param {*} req 
+ * @param {*} res 
+ */
+const create = (req, res) => { }
+
+/**
+ * meuvooooooo
+ * @param {*} req 
+ * @param {*} res 
+ */
+const destroy = (req, res) => { }
 
 module.exports = {
     getUser,
