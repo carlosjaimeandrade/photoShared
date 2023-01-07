@@ -5,7 +5,7 @@ const userRouter = express.Router();
 
 userRouter.get('/transaction', TransactionController.get);
 userRouter.post('/transaction', TransactionController.create);
-userRouter.put('/transaction', TransactionController.update);
+userRouter.put('/transaction/:id', TransactionController.update);
 userRouter.delete('/transaction', TransactionController.destroy);
 
 module.exports = userRouter;

@@ -4,3 +4,18 @@
 
 [2023-1-7 16:0:48] api.ERROR: Transaction.finsdAll is not a function  [object Extra] ( {} )  
 
+[2023-1-7 16:51:57] api.ERROR: notNull Violation: transaction.value cannot be null,
+notNull Violation: transaction.status cannot be null  [object Extra] ( {} )  
+
+[2023-1-7 16:57:9] api.ERROR: Missing where attribute in the options parameter  [object Extra] ( {} )  
+
+[2023-1-7 16:58:29] api.ERROR: Missing where attribute in the options parameter  [object Extra] ( {} )  
+
+[2023-1-7 16:58:32] api.ERROR: Missing where attribute in the options parameter  [object Extra] ( {} )  
+
+[2023-1-7 16:59:54] api.ERROR: Cannot add or update a child row: a foreign key constraint fails (`photoshared`.`transactions`, CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)  [object Extra] ( {} )  
+
+[2023-1-7 17:0:32] api.ERROR: Cannot add or update a child row: a foreign key constraint fails (`photoshared`.`transactions`, CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)  [object Extra] ( {} )  
+
+[2023-1-7 17:2:2] api.ERROR: Cannot add or update a child row: a foreign key constraint fails (`photoshared`.`transactions`, CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)  [object Extra] ( {} )  
+
