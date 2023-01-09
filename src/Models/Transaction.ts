@@ -17,7 +17,7 @@ interface ITransactionInstance extends Model {
 };
 
 const Transaction = connection.sequelize.define<ITransactionInstance>('Transaction', {
-    valor: {
+    value: {
         type: DataTypes.FLOAT,
         allowNull: false
     },
