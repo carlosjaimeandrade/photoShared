@@ -4,7 +4,7 @@
  * MIT Licensed
  */
 
-const app = require('./app');
+import app from './app';
 
 app.listen(process.env.PORT || 8080, () => {
     console.log(`SERVER-ON PORT: ${process.env.PORT}`);

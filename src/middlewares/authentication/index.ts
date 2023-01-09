@@ -4,4 +4,4 @@
  * MIT Licensed
  */
 
-const express = require('express');
+import express from 'express';

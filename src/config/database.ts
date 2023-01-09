@@ -4,23 +4,23 @@
  * MIT Licensed
  */
 
-const Sequelize = require('sequelize');
+import { Sequelize } from 'sequelize';
 
-let sequelize;
+let sequelize: Sequelize;
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
     production: {
-        username: process.env.DBPROD_USER,
-        password: process.env.DBPROD_PASS,
-        database: process.env.DBPROD_NAME,
-        host: process.env.DBPROD_HOST
+        username: process.env.DBPROD_USER as string,
+        password: process.env.DBPROD_PASS as string,
+        database: process.env.DBPROD_NAME as string,
+        host: process.env.DBPROD_HOST as string
     },
     development: {
-        username: process.env.DBDEV_USER,
-        password: process.env.DBDEV_PASS,
-        database: process.env.DBDEV_NAME,
-        host: process.env.DBDEV_HOST
+        username: process.env.DBDEV_USER as string,
+        password: process.env.DBDEV_PASS as string,
+        database: process.env.DBDEV_NAME as string,
+        host: process.env.DBDEV_HOST as string
     }
 };
 
@@ -60,4 +60,4 @@ const testConnection = async () => {
     }
 };
 
-module.exports = { sequelize, testConnection };
+export default { sequelize, testConnection };
