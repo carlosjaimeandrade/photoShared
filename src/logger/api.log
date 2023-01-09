@@ -23,3 +23,11 @@ notNull Violation: transaction.status cannot be null  [object Extra] ( {} )
 
 [2023-1-9 20:2:18] api.ERROR: Unknown column 'valor' in 'field list'  [object Extra] ( {} )  
 
+[2023-1-9 20:29:18] api.ERROR: Unknown column 'valor' in 'field list'  [object Extra] ( {} )  
+
+[2023-1-9 20:30:0] api.ERROR: notNull Violation: Transaction.valor cannot be null  [object Extra] ( {} )  
+
+[2023-1-9 20:30:31] api.ERROR: Unknown column 'valor' in 'field list'  [object Extra] ( {} )  
+
+[2023-1-9 20:30:34] api.ERROR: Unknown column 'valor' in 'field list'  [object Extra] ( {} )  
+
