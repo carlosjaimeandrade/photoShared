@@ -11,7 +11,7 @@ const transactionRouter = express.Router();
 
 transactionRouter.get('/transaction', TransactionController.get);
 transactionRouter.post('/transaction', TransactionController.create);
-transactionRouter.put('/transaction', TransactionController.update);
-transactionRouter.delete('/transaction', TransactionController.destroy);
+transactionRouter.put('/transaction/:id', TransactionController.update);
+transactionRouter.delete('/transaction/:id', TransactionController.destroy);
 
 export default transactionRouter;
