@@ -14,9 +14,7 @@ const monolog = require('monolog')
     const log = new Logger('api')
 
     log.pushHandler(new StreamHandler('./src/logger/api.log',Logger.DEBUG))
-   
-    log.on("log",function(error,record,handler){console.log(arguments)});
+ 
+    log.on("log",function(error: any, record: any, handler: any){console.log(arguments)});
 
-module.exports = {
-    log
-}
+export default log

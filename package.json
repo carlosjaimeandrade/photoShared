@@ -2,24 +2,38 @@
   "name": "photoshared",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server.js",
+  "main": "",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon ./src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-validator": "^6.14.2",
     "monolog": "^0.0.5",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.28.0",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/express-validator": "^3.0.0",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.11.18",
+    "@types/sequelize": "^4.28.14",
+    "@types/validator": "^13.7.10"
   }
 }

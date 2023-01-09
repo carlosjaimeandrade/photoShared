@@ -19,3 +19,7 @@ notNull Violation: transaction.status cannot be null  [object Extra] ( {} )
 
 [2023-1-7 17:2:2] api.ERROR: Cannot add or update a child row: a foreign key constraint fails (`photoshared`.`transactions`, CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE)  [object Extra] ( {} )  
 
+[2023-1-9 20:2:14] api.ERROR: notNull Violation: Transaction.valor cannot be null  [object Extra] ( {} )  
+
+[2023-1-9 20:2:18] api.ERROR: Unknown column 'valor' in 'field list'  [object Extra] ( {} )  
+

@@ -4,17 +4,19 @@
  * MIT Licensed
  */
 
-const Transaction = require('../Models/Transaction')
-const { message } = require('../helpers/message');
-const { log } = require('../helpers/monolog');
+import { Request, Response } from "express";
+
+import Transaction from '../Models/Transaction';
+import message  from '../helpers/message';
+import log from '../helpers/monolog';
 
 /**
  * Get all transaction
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Request} req 
+ * @param {Response} res 
  */
-const get = async (req, res) => {
+const get = async (req: Request, res: Response) => {
     try {
         const transaction = await Transaction.findAll();
 
@@ -25,7 +27,7 @@ const get = async (req, res) => {
             transaction
         })
 
-    } catch (error) {
+    } catch (error: any) {
         log.err(error.message)
         res.status(500);
         res.json({
@@ -39,10 +41,10 @@ const get = async (req, res) => {
 /**
  * Create a new transaction
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Request} req 
+ * @param {Response} res 
  */
-const create = async (req, res) => {
+const create = async (req: Request, res: Response) => {
     try {
         const transaction = await Transaction.create(req.body);
 
@@ -53,7 +55,7 @@ const create = async (req, res) => {
             transaction
         })
 
-    } catch (error) {
+    } catch (error: any) {
         log.err(error.message)
         res.status(500);
         res.json({
@@ -67,10 +69,10 @@ const create = async (req, res) => {
 /**
  * Update a single item in the database transaction
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Request} req 
+ * @param {Response} res 
  */
-const update = async (req, res) => { 
+const update = async (req: Request, res: Response) => { 
     try {
         await Transaction.update(req.body, {
             where: { id: req.params.id }
@@ -82,7 +84,7 @@ const update = async (req, res) => {
             code: 200
         })
 
-    } catch (error) {
+    } catch (error: any) {
         log.err(error.message)
         res.status(500);
         res.json({
@@ -96,10 +98,10 @@ const update = async (req, res) => {
 /**
  * Delete one item of entity transaction
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Request} req 
+ * @param {Response} res 
  */
-const destroy = async (req, res) => { 
+const destroy = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
 
@@ -127,7 +129,7 @@ const destroy = async (req, res) => {
             code: 200
         })
 
-    } catch (error) {
+    } catch (error: any) {
         log.err(error.message)
         res.status(500);
         res.json({
@@ -138,7 +140,7 @@ const destroy = async (req, res) => {
     }
 }
 
-module.exports = {
+export default {
     get,
     create,
     update,

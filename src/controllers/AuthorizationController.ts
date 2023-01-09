@@ -4,7 +4,13 @@
  * MIT Licensed
  */
 
-const signin = (req, res) => {
+import { Request, Response } from "express";
+
+/**
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+const signin = (req: Request, res: Response) => {
     try {
 
         res.status(200);
@@ -21,7 +27,7 @@ const signin = (req, res) => {
             }
         })
 
-    } catch (error) {
+    } catch (error: any) {
         res.status(500);
         res.json({
             error: error.message,
@@ -31,11 +37,13 @@ const signin = (req, res) => {
     }
 }
 
-const tokenIsValid = (req, res) => { };
+/**
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+const tokenIsValid = (req: Request, res: Response) => { };
 
-module.exports = {
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser
+export default {
+    signin,
+    tokenIsValid
 }
