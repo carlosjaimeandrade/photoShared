@@ -10,6 +10,7 @@ import TransactionController from '../../controllers/TransactionController';
 const transactionRouter = express.Router();
 
 transactionRouter.get('/transaction', TransactionController.get);
+transactionRouter.get('/transaction/:id', TransactionController.getOne);
 transactionRouter.post('/transaction', TransactionController.create);
 transactionRouter.put('/transaction/:id', TransactionController.update);
 transactionRouter.delete('/transaction/:id', TransactionController.destroy);
