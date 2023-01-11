@@ -10,7 +10,7 @@ import { validationResult } from 'express-validator';
 
 import User from '../Models/User';
 import log from '../helpers/monolog';
-import message from '../helpers/message';
+import message from '../helpers/messageHttp';
 
 /**
  * meuvooooooo

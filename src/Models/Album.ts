@@ -18,12 +18,6 @@ interface IUserInstance extends Model {
 }
 
 const Album = connection.sequelize.define<IUserInstance>('Album', {
-    id: {
-        type: DataTypes.NUMBER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: false

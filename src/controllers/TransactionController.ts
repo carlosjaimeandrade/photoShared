@@ -7,8 +7,38 @@
 import { Request, Response } from "express";
 
 import Transaction from '../Models/Transaction';
-import message  from '../helpers/message';
+import message  from '../helpers/messageHttp';
 import log from '../helpers/monolog';
+
+/**
+ * Get one value from transaction entity
+ * 
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+const getOne = async (req: Request, res: Response) => {
+    try {
+        const transaction = await Transaction.findOne({
+            where: {id: req.params.id}
+        });
+
+        res.status(200);
+        res.json({
+            error: null,
+            code: 200,
+            transaction
+        })
+
+    } catch (error: any) {
+        log.err(error.message)
+        res.status(500);
+        res.json({
+            error: message['500'],
+            code: 500,
+            transaction: {}
+        })
+    }
+}
 
 /**
  * Get all transaction
@@ -142,6 +172,7 @@ const destroy = async (req: Request, res: Response) => {
 
 export default {
     get,
+    getOne,
     create,
     update,
     destroy
