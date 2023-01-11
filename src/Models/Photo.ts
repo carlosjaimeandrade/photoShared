@@ -20,12 +20,6 @@ interface IPhotoInstance extends Model {
 }
 
 const Photo = connection.sequelize.define<IPhotoInstance>('Photo', {
-    id: {
-        type: DataTypes.NUMBER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: true
