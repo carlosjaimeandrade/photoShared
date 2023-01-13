@@ -4,3 +4,5 @@ notNull Violation: Transaction.status cannot be null  [object Extra] ( {} )
 
 [2023-1-12 21:8:56] api.ERROR: notNull Violation: Transaction.status cannot be null  [object Extra] ( {} )  
 
+[2023-1-13 17:44:4] api.ERROR: data and salt arguments required  [object Extra] ( {} )  
+
