@@ -13,7 +13,8 @@ const message = {
     '400': 'The server cannot or will not process the request.',
     '406': 'Not acceptable, send all parameters correctly.',
     '409': 'There was a data conflict.',
-    '500': 'We were unable to complete your request'
+    '500': 'We were unable to complete your request',
+    'DuplicateAlbumName': 'Duplicate album name, please choose a different album name'
 };
 
 export default message;
