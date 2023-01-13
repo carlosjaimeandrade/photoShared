@@ -32,5 +32,6 @@ import './Models/Transaction';
 
 app.use('/api', routes.user);
 app.use('/api', routes.transaction);
+app.use('/api', routes.album);
 
 export default app;

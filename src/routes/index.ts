@@ -6,8 +6,10 @@
 
 import user from './User';
 import transaction from './Transaction';
+import album from './Album';  
 
 export default {
     user,
-    transaction
+    transaction,
+    album
 }
