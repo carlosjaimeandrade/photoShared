@@ -12,10 +12,9 @@ import User from '../Models/User';
 import log from '../helpers/monolog';
 import message from '../helpers/messageHttp';
 
-/**
- * meuvooooooo
- * @param {*} req 
- * @param {*} res 
+/** 
+ * @param {Request} req 
+ * @param {Response} res 
  */
 const get = async (req: Request, res: Response) => {
     try {
@@ -48,10 +47,13 @@ const get = async (req: Request, res: Response) => {
             return;
         }
 
+        console.log(user);
+
+
         res.status(200);
         res.json({
             code: 200,
-            error: null,            
+            error: null,
             user: user.map((item) => {
                 return {
                     id: item.id,
@@ -66,7 +68,7 @@ const get = async (req: Request, res: Response) => {
                     createdAt: item.createdAt,
                     updatedAt: item.updatedAt
                 }
-            })[0]
+            })
         });
 
     } catch (error: any) {
@@ -80,19 +82,15 @@ const get = async (req: Request, res: Response) => {
     }
 }
 
-/**
- * meuvooooooo
- * @param {*} req 
- * @param {*} res 
+/** 
+ * @param {Request} req 
+ * @param {Response} res 
  */
 const create = async (req: Request, res: Response) => {
     try {
 
         const errors = validationResult(req);
         const { name, email, telephone, cpf, pix, password, type } = req.body;
-
-        console.log(errors);
-
 
         if (!errors.isEmpty()) {
             res.status(406);
@@ -152,13 +150,68 @@ const create = async (req: Request, res: Response) => {
     }
 }
 
-/**
- * meuvooooooo
- * @param {*} req 
- * @param {*} res 
+/** 
+ * @param {Request} req 
+ * @param {Response} res 
  */
 const update = async (req: Request, res: Response) => {
     try {
+
+        const id = req.params.id;
+
+        const {
+            avatar,
+            name,
+            email,
+            telephone,
+            cpf,
+            pix,
+            password,
+            type,
+            status
+        } = req.body;
+
+        const user = await User.findByPk(id);
+
+        if (!user) {
+            res.status(400);
+            res.json({
+                code: 400,
+                error: message['400'],
+                user: null
+            });
+            return;
+        };
+
+        const cryptPassword = hashSync(password, 10);
+
+        await User.update(
+            {
+                ...(avatar && { avatar }),
+                ...(name && { name }),
+                ...(email && { email }),
+                ...(telephone && { telephone }),
+                ...(cpf && { cpf }),
+                ...(pix && { pix }),
+                ...(password && { password: cryptPassword }),
+                ...(type && { type }),
+                ...(status && { status }),
+            },
+            {
+                where: { id: parseInt(id) }
+            }
+        );
+
+        res.status(200);
+        res.json({
+            code: 200,
+            error: null,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+            }
+        });
 
     } catch (error: any) {
         log.err(error.message)
@@ -171,13 +224,39 @@ const update = async (req: Request, res: Response) => {
     }
 }
 
-/**
- * meuvooooooo
- * @param {*} req 
- * @param {*} res 
+/** 
+ * @param {Request} req 
+ * @param {Response} res 
  */
 const destroy = async (req: Request, res: Response) => {
     try {
+
+        const id = req.params.id;
+        const user = await User.findByPk(id);
+
+        if (!user) {
+            res.status(400);
+            res.json({
+                code: 400,
+                error: message['400'],
+                user: null
+            });
+            return;
+        };
+
+        await User.destroy({ where: { id: parseInt(id) } });
+
+        res.status(200);
+        res.json({
+            code: 200,
+            error: null,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+            }
+        });
+
 
     } catch (error: any) {
         log.err(error.message)
@@ -194,5 +273,5 @@ export default {
     get,
     create,
     update,
-    destroy
+    destroy
 }

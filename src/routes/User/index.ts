@@ -6,13 +6,12 @@
 
 import express from 'express';
 
-import createUserValidate from '../../validators/user';
 import UserController from '../../controllers/UserController';
 
 const userRouter = express.Router();
 
 userRouter.get('/user', UserController.get);
-userRouter.post('/user', createUserValidate, UserController.create);
+userRouter.post('/user', UserController.create);
 userRouter.put('/user/:id', UserController.update);
 userRouter.delete('/user/:id', UserController.destroy);
 

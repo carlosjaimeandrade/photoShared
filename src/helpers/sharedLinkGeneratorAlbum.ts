@@ -10,7 +10,7 @@ import md5 from "md5"
  * Rule for generating code for link shared albums
  */
 const generate = (): string => {
-    const data: string = new Date().toISOString();;
+    const data: string = new Date().toISOString();
     return md5(data);
 }
 
