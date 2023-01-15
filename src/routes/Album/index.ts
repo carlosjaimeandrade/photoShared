@@ -14,5 +14,6 @@ const albumRouter = express.Router();
 
 albumRouter.get('/album', AlbumController.get);
 albumRouter.post('/album',uploadAlbum.single('photo'), AlbumController.create);
+albumRouter.put('/album/:id',uploadAlbum.single('photo'), AlbumController.update);
 
 export default albumRouter;

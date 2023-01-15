@@ -11,7 +11,7 @@ interface IUserInstance extends Model {
     id: number;
     name: string;
     description: string;
-    photographicPath: string;
+    photographPath: string;
     linkShared: string;
     pin: string;
     visibility: string;
