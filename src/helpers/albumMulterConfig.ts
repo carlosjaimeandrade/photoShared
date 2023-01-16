@@ -13,8 +13,9 @@ import Album from "../Models/Album";
 
 const storage = multer.diskStorage({
     destination: async function (req, file, cb) {
-        if (req.params.id) {
-            await updateFolder(file, req)
+        const album = await Album.findOne({ where: { id: req.params.id } })
+        if (req.params.id && album) {
+            await updateFolder(file, req, album)
         }
         cb(null, createFolder(req))
     },
@@ -38,8 +39,7 @@ const createFileName = (file: any): string => {
     return `${newName}.${extension}`
 }
 
-const updateFolder = async (file: any, req: any) => {
-    const album = await Album.findOne({ where: { id: req.params.id } })
+const updateFolder = async (file: any, req: any, album: any) => {
     const nameFolder: string = slugify(album!.name)
     const lastFolder: string = "src/uploads/" + nameFolder;
     const newFolder: string = slugify(req.body.name)
