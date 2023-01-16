@@ -55,6 +55,7 @@ const create = async (req: Request, res: Response) => {
                 code: 400,
                 album: {}
             })
+            return
         }
     
         const newAlbum = await Album.create({
@@ -87,6 +88,7 @@ const create = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
     try {
+        console.log(req.params)
         const id = req.params.id
         const destination = req.file?.destination
         const filename = req.file?.filename
@@ -108,8 +110,6 @@ const update = async (req: Request, res: Response) => {
             description: req.body.description,
             photographPath,
             visibility: req.body.visibility,
-            // linkShared: sharedLink(),
-            // pin: pin(),
             price: req.body.price
         }, {
             where: { id }

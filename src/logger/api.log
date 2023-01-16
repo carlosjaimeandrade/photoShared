@@ -4,3 +4,13 @@ notNull Violation: Transaction.status cannot be null  [object Extra] ( {} )
 
 [2023-1-12 21:8:56] api.ERROR: notNull Violation: Transaction.status cannot be null  [object Extra] ( {} )  
 
+[2023-1-16 19:8:5] api.ERROR: Cannot read properties of null (reading 'name')  [object Extra] ( {} )  
+
+[2023-1-16 19:8:45] api.ERROR: Cannot read properties of null (reading 'name')  [object Extra] ( {} )  
+
+[2023-1-16 19:8:50] api.ERROR: Cannot read properties of null (reading 'name')  [object Extra] ( {} )  
+
+[2023-1-16 19:9:7] api.ERROR: Cannot read properties of null (reading 'name')  [object Extra] ( {} )  
+
+[2023-1-16 19:21:55] api.ERROR: WHERE parameter "id" has invalid "undefined" value  [object Extra] ( {} )  
+

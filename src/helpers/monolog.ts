@@ -10,11 +10,12 @@
 const monolog = require('monolog')
 , Logger = monolog.Logger
 , StreamHandler = monolog.handler.StreamHandler;
+    
+const log = new Logger('api')
 
-    const log = new Logger('api')
+log.pushHandler(new StreamHandler('./src/logger/api.log', Logger.DEBUG))
 
-    log.pushHandler(new StreamHandler('./src/logger/api.log',Logger.DEBUG))
- 
-    log.on("log",function(error: any, record: any, handler: any){console.log(arguments)});
+log.on("log",function(error: any, record: any, handler: any){console.log(arguments)});
+
 
 export default log
