@@ -88,7 +88,6 @@ const create = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
     try {
-        console.log(req.params)
         const id = req.params.id
         const destination = req.file?.destination
         const filename = req.file?.filename
