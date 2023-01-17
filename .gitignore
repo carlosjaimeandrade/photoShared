@@ -1,6 +1,6 @@
 /node_modules/
 *.env
-/logger/
+/src/logger/
 *.LICENSE
 /dist/
-/uploads/
+/src/uploads/
