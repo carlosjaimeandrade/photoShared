@@ -47,7 +47,7 @@ const create = async (req: Request, res: Response) => {
         const photographPath = `${destination}/${filename}`
 
         const album = await Album.findOne({ where: { name: req.body.name }})
-
+        
         if(album){
             res.status(200);
             res.json({

@@ -15,7 +15,7 @@ import Album from "../../Models/Album";
  */
 const storage = multer.diskStorage({
     destination: async function (req, file, cb) {
-        await updateFolder(file, req)
+        cb(null, await updateFolder(file, req))
     },
     filename: async function (req, file, cb) {
         cb(null, createFileName(file))
@@ -48,6 +48,7 @@ const updateFolder = async (file: any, req: any) => {
     const newFolder: string = slugify(req.body.name)
     const newDestination: string = `src/uploads/${newFolder}`
     renamePath(lastFolder, newDestination)
+    return newDestination;
 }
 
 /**

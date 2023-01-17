@@ -14,3 +14,13 @@ notNull Violation: Transaction.status cannot be null  [object Extra] ( {} )
 
 [2023-1-16 19:21:55] api.ERROR: WHERE parameter "id" has invalid "undefined" value  [object Extra] ( {} )  
 
+[2023-1-17 19:11:58] api.ERROR: WHERE parameter "name" has invalid "undefined" value  [object Extra] ( {} )  
+
+[2023-1-17 19:12:10] api.ERROR: WHERE parameter "name" has invalid "undefined" value  [object Extra] ( {} )  
+
+[2023-1-17 19:12:29] api.ERROR: WHERE parameter "name" has invalid "undefined" value  [object Extra] ( {} )  
+
+[2023-1-17 19:13:17] api.ERROR: WHERE parameter "name" has invalid "undefined" value  [object Extra] ( {} )  
+
+[2023-1-17 19:13:35] api.ERROR: WHERE parameter "name" has invalid "undefined" value  [object Extra] ( {} )  
+
