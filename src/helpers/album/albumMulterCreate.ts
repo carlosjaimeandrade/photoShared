@@ -8,15 +8,12 @@ import multer from "multer";
 import md5 from "md5";
 import slugify from "slugify";
 import fs from 'fs';
-import fse from 'fs-extra'
-import Album from "../Models/Album";
 
+/**
+ * Execute create folder and file
+ */
 const storage = multer.diskStorage({
     destination: async function (req, file, cb) {
-        const album = await Album.findOne({ where: { id: req.params.id } })
-        if (req.params.id && album) {
-            await updateFolder(file, req, album)
-        }
         cb(null, createFolder(req))
     },
     filename: async function (req, file, cb) {
@@ -24,6 +21,12 @@ const storage = multer.diskStorage({
     }
 });
 
+/**
+ * Create a new folder
+ * 
+ * @param {any} req 
+ * @returns {string}
+ */
 const createFolder = (req: any): string => {
     const folder: string = slugify(req.body.name)
     const destination: string = `src/uploads/${folder}`
@@ -33,31 +36,16 @@ const createFolder = (req: any): string => {
     return destination;
 }
 
+/**
+ * Create file name path
+ * 
+ * @param {any} file 
+ * @returns {string}
+ */
 const createFileName = (file: any): string => {
     const extension: string = file.originalname.split('.')[1];
     const newName: string = md5('photo-album-name')
     return `${newName}.${extension}`
-}
-
-const updateFolder = async (file: any, req: any, album: any) => {
-    const nameFolder: string = slugify(album!.name)
-    const lastFolder: string = "src/uploads/" + nameFolder;
-    const newFolder: string = slugify(req.body.name)
-    const newDestination: string = `src/uploads/${newFolder}`
-    renamePath(lastFolder, newDestination)
-}
-
-const renamePath = (path: string, newPath: string) => {
-    if (fse.existsSync(newPath)) {
-        return
-    }
-
-    if (fse.lstatSync(path).isDirectory()) {
-        fse.copySync(path, newPath);
-        fse.rmdirSync(path, { recursive: true });
-    } else if (fse.lstatSync(path).isFile()) {
-        fse.renameSync(path, newPath);
-    }
 }
 
 export default {

@@ -6,14 +6,14 @@
 
 import express from 'express';
 import AlbumController from '../../controllers/AlbumController';
-import albumMulter from '../../helpers/albumMulterConfig'
+import albumMulterCreate from '../../helpers/album/albumMulterCreate'
 
-const uploadAlbum = albumMulter.import({ storage: albumMulter.storage });
+const uploadAlbumCreate = albumMulterCreate.import({ storage: albumMulterCreate.storage });
 
 const albumRouter = express.Router();
 
 albumRouter.get('/album', AlbumController.get);
-albumRouter.post('/album',uploadAlbum.single('photo'), AlbumController.create);
-albumRouter.put('/album/:id',uploadAlbum.single('photo'), AlbumController.update);
+albumRouter.post('/album',uploadAlbumCreate.single('photo'), AlbumController.create);
+albumRouter.put('/album/:id', AlbumController.update);
 
 export default albumRouter;
