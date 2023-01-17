@@ -15,6 +15,7 @@ import fs from 'fs';
 const storage = multer.diskStorage({
     destination: async function (req, file, cb) {
         cb(null, createFolder(req))
+        
     },
     filename: async function (req, file, cb) {
         cb(null, createFileName(file))

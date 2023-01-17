@@ -17,5 +17,4 @@ log.pushHandler(new StreamHandler('./src/logger/api.log', Logger.DEBUG))
 
 log.on("log",function(error: any, record: any, handler: any){console.log(arguments)});
 
-
 export default log
