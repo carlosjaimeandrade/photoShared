@@ -102,6 +102,7 @@ const update = async (req: Request, res: Response) => {
                 code: 400,
                 album: {}
             })
+            return
         }
 
         const updateAlbum = await Album.update({
@@ -120,6 +121,7 @@ const update = async (req: Request, res: Response) => {
             code: 200,
             album: updateAlbum
         })
+
 
     } catch (error: any) {
         log.err(error.message)
