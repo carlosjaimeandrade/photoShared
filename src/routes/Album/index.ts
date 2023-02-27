@@ -47,6 +47,7 @@ const uploadAlbumUpdate = albumMulterUpdate.import({
 const albumRouter = express.Router();
 
 albumRouter.get('/album', AlbumController.get);
+albumRouter.get('/album/:id', AlbumController.getOne);
 albumRouter.post('/album', uploadAlbumCreate.single('photo'), AlbumController.create);
 albumRouter.put('/album/:id', uploadAlbumUpdate.single('photo'), AlbumController.update);
 
