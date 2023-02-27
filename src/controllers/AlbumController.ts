@@ -40,6 +40,34 @@ const get = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ * Get one values from entity
+ * 
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+const getOne = async (req: Request, res: Response) => {
+    try {
+        const albuns = await Album.findByPk(req.params.id);
+
+        res.status(200);
+        res.json({
+            error: null,
+            code: 200,
+            albuns
+        })
+
+    } catch (error: any) {
+        log.err(error.message)
+        res.status(500);
+        res.json({
+            error: message['500'],
+            code: 500,
+            album: {}
+        })
+    }
+}
+
 const create = async (req: Request, res: Response) => {
     try {
         const destination = req.file?.destination
@@ -136,6 +164,7 @@ const update = async (req: Request, res: Response) => {
 
 export default {
     get,
+    getOne,
     create,
     update
 }
